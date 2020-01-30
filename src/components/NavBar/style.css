@@ -1,0 +1,7 @@
+.navBar {
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #000;
+  background-color: #fd81003d;
+  display: flex;
+}
