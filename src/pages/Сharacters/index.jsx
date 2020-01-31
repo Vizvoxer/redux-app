@@ -1,14 +1,25 @@
 import React from "react";
-import useGetCharactersData from "./useGetCharactersData";
-import CharacterItem from "../../components/CharacterItem";
+import { connect } from "react-redux";
 
-import "./styles.css";
+import "../../containers/NavBarContainer/styles.css";
+import { toggleCharacterSelect } from "../../store/checkout/actions";
+import CharacterItemContainer from "../../containers/CharacterItemContainer";
 
-export default function Characters() {
-  const { characters = [] } = useGetCharactersData();
-  return characters.map(char => (
-    <div className="characterContainer" key={char.url}>
-      <CharacterItem name={char.name} url={char.url} />
+function Characters({ characters, toggleCharacter }) {
+  return characters.map(character => (
+    <div className="characterContainer" key={character.url}>
+      <CharacterItemContainer
+        character={character}
+        toggleCharacter={toggleCharacter}
+      />
     </div>
   ));
 }
+
+const mapDispatchToProps = {
+  toggleCharacter: toggleCharacterSelect
+};
+
+const enhancer = connect(null, mapDispatchToProps);
+
+export default enhancer(Characters);

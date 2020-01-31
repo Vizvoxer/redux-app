@@ -4,6 +4,10 @@
   transition: transform 0.5s;
 }
 
+.characterItemSelected {
+  background-color: rgba(100, 215, 100, 0.3);
+}
+
 .characterItem:hover {
   transform: scale(1.1);
 }

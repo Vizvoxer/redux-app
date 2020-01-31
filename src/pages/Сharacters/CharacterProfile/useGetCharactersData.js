@@ -1,24 +1,14 @@
-import { useEffect, useState, useMemo } from "react";
-import { getCharacterProfile } from "../../../api/characters";
+import { useMemo } from "react";
+
+import { useSelector } from "react-redux";
+import { makeSelectCharacterById } from "../../../store/selectors";
 
 export default function useGetCharacterProfile(id) {
-  const [character, setCharacter] = useState({});
-  const [cancel, setCancel] = useState(false);
+  const characterByIdSelector = useMemo(() => makeSelectCharacterById(id), [
+    id
+  ]);
 
-  useEffect(() => {
-    getCharacterProfile(id)
-      .then(data => {
-        if (!cancel) {
-          setCharacter(data);
-        }
-      })
-      .catch(error => {
-        console.log("Error obtaining character:", error);
-      });
-    return function abortGetCharacterProfile() {
-      setCancel(true);
-    };
-  }, [cancel, id, setCancel]);
+  const character = useSelector(characterByIdSelector);
   return useMemo(
     () => ({
       character

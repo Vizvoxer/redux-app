@@ -15,12 +15,3 @@ export function getCharacters(options) {
       console.log("Fetch of characters failed:", error);
     });
 }
-
-export function getCharacterProfile(id, options) {
-  return fetch(`https://anapioficeandfire.com/api/characters/${id}`, options)
-    .then(result => result.json())
-    .then(profile => adaptCharacter(profile))
-    .catch(error => {
-      console.log("Fetch of characters failed:", error);
-    });
-}
