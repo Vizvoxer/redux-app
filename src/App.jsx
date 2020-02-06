@@ -6,6 +6,7 @@ import { routes } from "./constants/routes";
 import CharacterProfile from "./pages/Сharacters/CharacterProfile";
 import NavBarContainer from "./containers/NavBarContainer";
 import useGetCharactersData from "./hooks/useGetCharactersData";
+import 'antd/dist/antd.css';
 
 function App() {
   const { characters } = useGetCharactersData();
