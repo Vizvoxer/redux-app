@@ -5,7 +5,7 @@ export default function useToggle(initialState) {
     const toggleValue = useCallback(() => {
             setValue(!value);
 
-    }, [value])
+    }, [value]);
 
     return useMemo(() => [value, toggleValue], [toggleValue, value]);
 }

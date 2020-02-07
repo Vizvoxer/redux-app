@@ -18,7 +18,9 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
-    "reselect": "^4.0.0"
+    "redux-form": "^8.3.0",
+    "reselect": "^4.0.0",
+    "revalidate": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

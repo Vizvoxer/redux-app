@@ -5,14 +5,24 @@ import useGetCharacterProfile from "./useGetCharactersData";
 import useGetCharacterSelection from "../../../hooks/useGetCharacterSelection";
 import CharacterDetails from "../../../components/CharacterDetails";
 import useToggle from "../../../hooks/useToggle";
-import CharacterForm from "../../../components/CharacterForm";
+import CharacterFormContainer from "../../../containers/CharacterFormContainer";
+import useCharacterFormInitialValues from "./useCharacterFormInitialValues";
+
+const onSubmit = values => {
+    console.log(values);
+};
+
 
 export default function CharacterProfile() {
   const { characterId } = useParams();
   const { character = {} } = useGetCharacterProfile(characterId);
   const selected = useGetCharacterSelection(characterId);
   const [isEditMode, toggleEditMode] = useToggle(false);
-  const pageContent = isEditMode ? <CharacterForm/> : <CharacterDetails character={character} selected={selected} />;
+  const initialValues = useCharacterFormInitialValues(character);
+  const formContainer = <CharacterFormContainer initialValues={initialValues} onSubmit={onSubmit}  />;
+  const detailsContainer = <CharacterDetails character={character} selected={selected} />;
+  const pageContent = isEditMode ? formContainer : detailsContainer;
+
   return (
       <div>
         <button onClick={toggleEditMode}> Toggle Edit mode</button>

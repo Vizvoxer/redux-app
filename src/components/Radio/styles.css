@@ -1,0 +1,36 @@
+.hiddenInput {
+    visibility: hidden;
+    position: absolute;
+
+}
+
+.hiddenInput + .check {
+    border-radius: 50%;
+}
+
+
+.hiddenInput:checked + .check:before {
+
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: blue;
+
+}
+
+.check {
+    display: inline-block;
+    position: relative;
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    border: 1px solid grey;
+    vertical-align: middle;
+    margin-left: 18px;
+}

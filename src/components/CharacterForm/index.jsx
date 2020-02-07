@@ -1,12 +1,15 @@
-import React from 'react';
-import { Input } from 'antd';
+import React, { Fragment } from 'react';
+import { FormSection } from 'redux-form';
+import CharacterSection from "./CharacterSection";
+
 
 export default function CharacterForm() {
     return (
-        <form>
-            <Input  placeholder="Enter name"/>
-            <Input  placeholder="Enter gender"/>
-            <Input  placeholder="Enter culture"/>
-        </form>
+        <Fragment>
+            <FormSection name="user">
+                <CharacterSection />
+            </FormSection>
+            <input type="submit" value="Send form"/>
+        </Fragment>
     )
 }
