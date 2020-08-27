@@ -13,12 +13,8 @@ export default function CharacterItemContainer({ character, toggleCharacter }) {
     toggleCharacter(character.id);
   }, [character.id, toggleCharacter]);
 
-  const preventPropagation = useCallback(e => {
-    e.stopPropagation();
-  }, []);
-
   return (
-    <div className="characterContainer" onClick={preventPropagation}>
+    <div className="characterContainer" >
       <CharacterItem
         name={character.name}
         url={character.url}

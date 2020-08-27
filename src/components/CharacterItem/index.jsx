@@ -11,7 +11,9 @@ export default function CharacterItem({ name, url, selected, onClick }) {
   });
   return (
     <div className={characterClassNames} onClick={onClick}>
-      <span>
+      <span onClick={(e) => {
+        e.stopPropagation()
+      }}>
         {name}. Details are <Link to={url}>here</Link>
       </span>
     </div>
